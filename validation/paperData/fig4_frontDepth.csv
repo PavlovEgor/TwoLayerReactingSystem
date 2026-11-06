@@ -1,0 +1,11 @@
+# Fig 4: depth of the coloured region below the interface, units of h
+regime,gamma,t,meanDepth,stdDepth,medianDepth,maxDepth,dominantCells
+DCC,1.0,5,1.16,0.44,1.27,1.55,10
+DCC,1.0,10,2.52,0.36,2.54,2.97,9
+DCC,1.0,20,4.24,0.45,4.38,4.66,7
+SW,0.4,1,5.57,1.85,5.65,11.45,2
+SW,0.4,5,18.4,1.62,18.66,19.22,3
+SW,0.4,10,27.36,2.33,27.56,27.99,6
+RT,0.1,0.1,6.59,3.85,6.78,15.55,2
+RT,0.1,0.5,17.09,7.83,18.09,29.82,4
+RT,0.1,1,24.77,11.51,26.93,39.29,4
