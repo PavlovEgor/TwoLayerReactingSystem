@@ -1,0 +1,23 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+#------------------------------------------------------------------------------
+# One button: environment, build, parametric study, comparison with the paper.
+#
+# Usage: ./Allrun [--profile smoke|short|full] [--cpus N] [--cpus-per-case N]
+#                 [--slurm] [--only NAME] [--post-only]
+#
+# The results are in validation/results/<profile>/, start from summary.md.
+#------------------------------------------------------------------------------
+
+[ -n "$WM_PROJECT_DIR" ] || {
+    echo "OpenFOAM environment is not set: source its etc/bashrc first"
+    exit 1
+}
+
+[ -x .venv/bin/python ] || bin/setup-venv || exit
+
+./Allwmake -j || exit
+
+validation/Allrun "$@"
+
+#------------------------------------------------------------------------------
