@@ -1,0 +1,7 @@
+#!/bin/sh
+# Create the project virtual environment with foamlib in <repo>/.venv
+cd "${0%/*}/.." || exit
+python3 -m venv .venv || exit
+.venv/bin/python -m pip install --quiet --upgrade pip || exit
+.venv/bin/python -m pip install --quiet -r requirements.txt || exit
+.venv/bin/python -c "import foamlib; print('foamlib', foamlib.__version__, 'in', '$PWD/.venv')"

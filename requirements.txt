@@ -1,0 +1,5 @@
+foamlib==1.10.2
+numpy
+scipy
+matplotlib
+pillow

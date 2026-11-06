@@ -1,0 +1,43 @@
+# Editor and backups
+*~
+.*~
+*.bak
+\#*\#
+.vscode/
+
+# wmake
+*.[oa]
+*.la
+*.so
+*.dep
+lnInclude
+linux*Clang*/
+linux*Gcc*/
+linux*Icc*/
+Make/linux*/
+platforms/
+build/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Paper (copyright of the publisher, keep local)
+doc/*.pdf
+
+# OpenFOAM case output
+log.*
+processor[0-9]*/
+postProcessing/
+polyMesh/
+[0-9]*/
+!0.orig/
+[0-9]*.[0-9]*/
+*.foam
+!tutorials/**/constant/polyMesh/
+dynamicCode/
+
+# Validation output
+validation/run/
+validation/results/full*/
