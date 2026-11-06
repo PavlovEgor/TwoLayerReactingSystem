@@ -24,7 +24,7 @@ endTime         4311;           // t* = 10, t* = t*DA/h^2
 deltaT          0.01;
 adjustTimeStep  yes;
 maxCo           0.5;
-maxDeltaT       2;
+maxDeltaT       0.5;
 
 writeControl    adjustableRunTime;
 writeInterval   431.1;          // t* = 1

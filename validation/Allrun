@@ -1,0 +1,23 @@
+#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+#------------------------------------------------------------------------------
+# Parametric study and comparison with the paper.
+#
+# Usage: ./Allrun [--profile smoke|short|full] [--cpus N] [--cpus-per-case N]
+#                 [--slurm] [--only NAME] [--post-only]
+#
+#   smoke   minutes:  checks the whole chain
+#   short   ~1 hour:  base state and Fig 4 on the 100x200 mesh
+#   full    server:   the mesh of the paper, gamma sweep, Fig 5 points
+#------------------------------------------------------------------------------
+
+[ -x ../.venv/bin/python ] || ../bin/setup-venv || exit
+
+command -v twoLayerReactingFoam > /dev/null || {
+    echo "twoLayerReactingFoam not found: run ./Allwmake in the repository root"
+    exit 1
+}
+
+exec ../.venv/bin/python study.py "$@"
+
+#------------------------------------------------------------------------------

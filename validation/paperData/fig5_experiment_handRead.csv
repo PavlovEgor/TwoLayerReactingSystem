@@ -1,0 +1,12 @@
+# Fig 5, depth of the pattern read by hand from the pH field, scale bar 1 cm = 30 px = 8.33 h. Rough, +-20 %.
+# The caption gives B0 = 0.5 M for SW, which contradicts gamma = 0.4 of the same caption (B0 = 0.8 M).
+regime,A0_molL,gamma,t_s,depth_cm,depth_h
+DCC,4.2,0.95,45,0.17,1.4
+DCC,4.2,0.95,320,0.40,3.3
+DCC,4.2,0.95,960,0.60,5.0
+SW,2.0,0.40,70,0.93,7.8
+SW,2.0,0.40,710,3.63,30
+SW,2.0,0.40,1040,4.80,40
+RT,3.1,0.065,50,1.00,8.3
+RT,3.1,0.065,170,2.33,19
+RT,3.1,0.065,320,5.27,44

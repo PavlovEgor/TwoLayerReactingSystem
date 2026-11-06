@@ -40,4 +40,4 @@ dynamicCode/
 
 # Validation output
 validation/run/
-validation/results/full*/
+validation/results/
