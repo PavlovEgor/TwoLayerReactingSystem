@@ -1,0 +1,57 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     |                                                 |
+|   \\  /    A nd           |                                                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    p
+    {
+        // The layers are decoupled by the interface: the constant mode of
+        // each of them spoils plain GAMG
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-7;
+        relTol          0.01;
+    }
+
+    pFinal
+    {
+        $p;
+        relTol          0;
+    }
+
+    "(U|A|B|C)"
+    {
+        solver          PBiCGStab;
+        preconditioner  DILU;
+        tolerance       1e-9;
+        relTol          0;
+    }
+
+    "(U|A|B|C)Final"
+    {
+        $U;
+    }
+}
+
+PIMPLE
+{
+    momentumPredictor   yes;
+    nOuterCorrectors    1;
+    nCorrectors         2;
+    nNonOrthogonalCorrectors 0;
+}
+
+// ************************************************************************* //

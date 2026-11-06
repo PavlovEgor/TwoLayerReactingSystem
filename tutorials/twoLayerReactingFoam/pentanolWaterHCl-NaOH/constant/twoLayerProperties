@@ -1,0 +1,56 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     |                                                 |
+|   \\  /    A nd           |                                                 |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      twoLayerProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Bratsun et al. 2023, Phil. Trans. R. Soc. A 381: 20220178, Table 1.
+// Lower layer: NaOH in water. Upper layer: HCl in n-pentanol.
+//
+// Sc = 299, RA = 5.39e4 A0[mol/l], RB = 2.44, RC = 2.28, DB = 0.64, DC = 0.48,
+// nu = 4.81, eta = 3.90, Da = 1000. The solver prints these numbers at start.
+// nuLower is the assumed value that gives the dimensional scales.
+
+hGap            1.2e-3;
+
+rhoLower        1000;
+rhoUpper        810.81;     // rhoLower*eta/nu
+nuLower         1e-6;
+nuUpper         4.81e-6;
+
+DA              3.3445e-9;  // nuLower/Sc
+DB              2.1405e-9;  // 0.64*DA
+DC              1.6054e-9;  // 0.48*DA
+
+betaA           1.0632e-5;  // RA*DA*nuLower/(g*hGap^3)/1000
+betaB           2.5942e-5;  // RB*betaA
+betaC           2.4241e-5;  // RC*betaA
+
+A0              1000;       // mol/m3
+B0              400;        // mol/m3, gamma = 0.4
+
+Da              1000;
+
+// mu_H2O/rho_H2O + mu_NaCl/rho_NaCl = 18.0e-6 + 27.0e-6 m3/mol
+molarVolume     4.5e-5;
+waterRelease    true;
+
+interfacePoint  (0 0 0);
+
+perturbation
+{
+    amplitude       1e-3;
+    seed            1234;
+}
+
+// ************************************************************************* //
