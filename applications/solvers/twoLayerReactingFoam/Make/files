@@ -1,0 +1,3 @@
+twoLayerReactingFoam.C
+
+EXE = $(FOAM_MODULE_APPBIN)/twoLayerReactingFoam

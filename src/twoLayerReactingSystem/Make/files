@@ -1,0 +1,3 @@
+twoLayerReactingSystem.C
+
+LIB = $(FOAM_MODULE_LIBBIN)/libtwoLayerReactingSystem

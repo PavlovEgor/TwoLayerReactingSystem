@@ -1,0 +1,3 @@
+setTwoLayerFields.C
+
+EXE = $(FOAM_MODULE_APPBIN)/setTwoLayerFields
